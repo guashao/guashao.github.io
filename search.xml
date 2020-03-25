@@ -4,7 +4,8 @@
     <title>试着阐明复杂度（一）</title>
     <url>/2020/03/24/%E8%B7%A8%E8%B6%8A%E4%B9%A6%E9%9D%A2%E9%9A%9C%E7%A2%8D-%E5%A4%8D%E6%9D%82%E5%BA%A6/</url>
     <content><![CDATA[<p>今天开始正式学习算法，先拿这个之前一看到各种论证推理就晕菜的复杂度下手。这次丢掉繁杂的论证过程，试着不专业的阐明算法的头道菜–复杂度</p>
-<p>&lt;– more –&gt;</p>
+<a id="more"></a>
+
 <h1 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h1><h2 id="什么是大O"><a href="#什么是大O" class="headerlink" title="什么是大O"></a>什么是大O</h2><p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200325011534.png" alt=""></p>
 <p>先解决最重要的 <strong>描述复杂度级别</strong> 的 O(f(n)) 问题。什么是大O？</p>
 <p>答：简单说就是你运行的程序所 <strong>需要执行的指令数</strong> ()。</p>
