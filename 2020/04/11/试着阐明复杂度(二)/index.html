@@ -23,19 +23,36 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="篇章一主要阐述了关于时间复杂度的几个重要概念，篇章二就来试着找一些典型例子说明常见的时间复杂度类型">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2020/03/16/hello-world/index.html">
+<meta property="og:title" content="试着阐明复杂度（二）">
+<meta property="og:url" content="http://yoursite.com/2020/04/11/%E8%AF%95%E7%9D%80%E9%98%90%E6%98%8E%E5%A4%8D%E6%9D%82%E5%BA%A6(%E4%BA%8C)/index.html">
 <meta property="og:site_name" content="从明天起">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="篇章一主要阐述了关于时间复杂度的几个重要概念，篇章二就来试着找一些典型例子说明常见的时间复杂度类型">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-15T16:57:24.191Z">
-<meta property="article:modified_time" content="2020-03-16T17:28:14.655Z">
+<meta property="og:image" content="https://gitee.com/kerf/picbed/raw/master/img/20200411171436.png">
+<meta property="og:image" content="https://gitee.com/kerf/picbed/raw/master/img/20200411172349.png">
+<meta property="og:image" content="https://gitee.com/kerf/picbed/raw/master/img/20200411173127.png">
+<meta property="og:image" content="https://gitee.com/kerf/picbed/raw/master/img/20200411173629.png">
+<meta property="og:image" content="https://gitee.com/kerf/picbed/raw/master/img/20200411174357.png">
+<meta property="og:image" content="https://gitee.com/kerf/picbed/raw/master/img/20200411175133.png">
+<meta property="og:image" content="https://gitee.com/kerf/picbed/raw/master/img/20200411175859.png">
+<meta property="og:image" content="https://gitee.com/kerf/picbed/raw/master/img/20200411180438.png">
+<meta property="og:image" content="https://gitee.com/kerf/picbed/raw/master/img/20200411181218.png">
+<meta property="og:image" content="https://gitee.com/kerf/picbed/raw/master/img/20200411183405.png">
+<meta property="og:image" content="https://gitee.com/kerf/picbed/raw/master/img/20200411183823.png">
+<meta property="og:image" content="https://gitee.com/kerf/picbed/raw/master/img/20200411184423.png">
+<meta property="og:image" content="https://gitee.com/kerf/picbed/raw/master/img/20200411184934.png">
+<meta property="og:image" content="https://gitee.com/kerf/picbed/raw/master/img/20200411185129.png">
+<meta property="og:image" content="https://gitee.com/kerf/picbed/raw/master/img/20200411185609.png">
+<meta property="article:published_time" content="2020-04-11T07:42:05.000Z">
+<meta property="article:modified_time" content="2020-04-11T11:20:39.928Z">
 <meta property="article:author" content="guashao">
+<meta property="article:tag" content="java，算法入门，复杂度">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/kerf/picbed/raw/master/img/20200411171436.png">
 
-<link rel="canonical" href="http://yoursite.com/2020/03/16/hello-world/">
+<link rel="canonical" href="http://yoursite.com/2020/04/11/%E8%AF%95%E7%9D%80%E9%98%90%E6%98%8E%E5%A4%8D%E6%9D%82%E5%BA%A6(%E4%BA%8C)/">
 
 
 <script id="page-configurations">
@@ -47,7 +64,7 @@
   };
 </script>
 
-  <title>Hello World | 从明天起</title>
+  <title>试着阐明复杂度（二） | 从明天起</title>
   
 
 
@@ -194,7 +211,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/16/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/11/%E8%AF%95%E7%9D%80%E9%98%90%E6%98%8E%E5%A4%8D%E6%9D%82%E5%BA%A6(%E4%BA%8C)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/wali.jpg">
@@ -207,7 +224,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          试着阐明复杂度（二）
         </h1>
 
         <div class="post-meta">
@@ -216,39 +233,21 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-03-16 00:57:24" itemprop="dateCreated datePublished" datetime="2020-03-16T00:57:24+08:00">2020-03-16</time>
+              <time title="创建时间：2020-04-11 15:42:05 / 修改时间：19:20:39" itemprop="dateCreated datePublished" datetime="2020-04-11T15:42:05+08:00">2020-04-11</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-17 01:28:14" itemprop="dateModified" datetime="2020-03-17T01:28:14+08:00">2020-03-17</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
                 </span>
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/03/16/hello-world/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/16/hello-world/" itemprop="commentCount"></span>
-    </a>
-  </span>
   
   
 
@@ -261,21 +260,66 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+        <p>篇章一主要阐述了关于时间复杂度的几个重要概念，篇章二就来试着找一些典型例子说明常见的时间复杂度类型</p>
 <a id="more"></a>
 
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h1 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h1><h2 id="常见的时间复杂度类型"><a href="#常见的时间复杂度类型" class="headerlink" title="常见的时间复杂度类型"></a>常见的时间复杂度类型</h2><ol>
+<li><p>O(1)</p>
+<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411171436.png" alt=""></p>
+<p>这个算法并没有对数据规模n做处理，而只是在几个常量层面上，时间复杂度便为O(1)</p>
+</li>
+<li><p>O(n)</p>
+<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411172349.png" alt=""></p>
+<p>一个很常见的n循环，时间复杂度为O(n)</p>
+<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411173127.png" alt=""></p>
+<p>时间复杂度仍为O(n)。到这里你可能已经知道，我们说的O(n)<strong>并不一定是数据规模就是n,准确的说是与n成线性相关</strong>，即c*n(c为常数)</p>
+</li>
+<li><p>O($ n^2$)</p>
+<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411173629.png" alt=""></p>
+<p>典型的<strong>双重循环，且每一层都与数据规模n相关</strong>，<strong>一般</strong>由此就可判断时间复杂度为O($n^2$)。如果仔细分析，数据处理次数为</p>
+<p>n-1+n-2+n-3+…+0=(n-1)*n/2=$n^2$/2-n/2,与$n^2$成线性相关</p>
+<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411174357.png" alt=""></p>
+<p><strong>不能简单的看到双重循环就认为时间复杂度为O($n^2$)</strong>。如上图，第一层循环循环n次，但是第二层只处理固定的30次，即30n。它的时间复杂度其实为O(n)</p>
+</li>
+<li><p>O(logn)</p>
+<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411175133.png" alt=""></p>
+<p>二分查找，典型的O(logn)的例子。关于是否logn的判断就是对于n的本质是</p>
+<p><strong>n经过几次“除以某个数”操作等于一个数</strong></p>
+<p>如二分查找就是看n经过几次除以2等于1</p>
+<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411175859.png" alt=""></p>
+<p>举这样一个将整数转化为字符串的算法，经过次数$log_{10}$n后进行顺序颠倒，时间复杂度为O(logn)</p>
+<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411180438.png" alt=""></p>
+<p>一看是双重循环，但它时间复杂度并不是O($n^2$)。而是O(nlogn)。<strong>第一层的递增规律不是一般的每次加1，这里每次都进行翻倍，符合n经过几次除以2后得到1</strong>，数据处理次数为logn。总体为O(nlogn)。</p>
+</li>
+<li><p>O(sqrt(n))</p>
+<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411181218.png" alt=""></p>
+<p>典型的求素数的算法。不同上面例子的是，循环的递增规律是逐一递增，<strong>判断条件则不是到n,只到了$\sqrt[]{n}$,</strong>时间复杂度就不是O(n),时间复杂度为O($\sqrt[]{n}$)</p>
+</li>
+</ol>
+<h2 id="解决复杂的递归函数时间复杂度"><a href="#解决复杂的递归函数时间复杂度" class="headerlink" title="解决复杂的递归函数时间复杂度"></a>解决复杂的递归函数时间复杂度</h2><p>前面分析的复杂度实例多是<strong>一个处理过程</strong>，如果像递归函数这种函数里面<strong>多次调用函数</strong>，<strong>有多个处理过程的</strong>，它的复杂度又是怎样分析呢？下面提供几种思路</p>
+<ol>
+<li><p>递归函数中有<strong>一次递归调用</strong></p>
+<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411183405.png" alt=""></p>
+<p>老朋友二分查找就是递归函数，而且函数里面<strong>并没有循环等</strong>，每次完成的时间复杂度为O(1)，调用了logn次</p>
+<img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411183823.png"  />
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>如上分析，二分查找的总时间复杂度就是O(T*depth),其中T=O(1),depth=logn,总时间复杂度O(logn)</p>
+<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411184423.png" alt=""></p>
+<p>计算1+2+..+n。<strong>每个递归函数的时间复杂度</strong>为O(1),<strong>递归深度</strong>为n,总时间复杂度为O(n)</p>
+<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411184934.png" alt=""></p>
+<p>计算$x^n$。<strong>每个递归函数的时间复杂度</strong>为O(1),<strong>递归深度</strong>为logn,总时间复杂度为O(logn)</p>
+</li>
+<li><p>递归函数中有多次函数调用</p>
+<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411185129.png" alt=""></p>
+<p>计算$2^n$。<strong>每个递归函数里面进行两次递归调用</strong></p>
+<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411185609.png" alt=""></p>
+<p><strong>每个递归函数的时间复杂度</strong>为O(1),<strong>递归深度</strong>为n+1,<strong>递归次数</strong>为$2^n$。总时间复杂度为增长很快的指数型级别O($2^n$)。这里由于每个函数是调用不止一次的，所以<strong>递归深度不等于递归次数</strong>，这点与前面每个函数只调用一次有区别。</p>
+</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>篇章一：时间复杂度重要概念</p>
+<p>篇章二：常见时间复杂度类型</p>
+<p>篇章二是对篇章一的巩固，掌握了这些知识后，已经可以对大多数常见的，基本的算法进行复杂度分析了。到此，我想已经达到了<strong>跳过复杂的概念学会复杂度分析的目标</strong>。</p>
+<p>对于一些比较复杂的，需要具体问题具体分析，我们也并非束手无策，可以采用<strong>“复杂度均摊”</strong>等方法，这些方法需要我们查找资料，继续学习。</p>
 
     </div>
 
@@ -304,17 +348,21 @@
 
 
       <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/java%EF%BC%8C%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%EF%BC%8C%E5%A4%8D%E6%9D%82%E5%BA%A6/" rel="tag"><i class="fa fa-tag"></i> java，算法入门，复杂度</a>
+          </div>
 
         
 
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/03/24/%E8%B7%A8%E8%B6%8A%E4%B9%A6%E9%9D%A2%E9%9A%9C%E7%A2%8D-%E5%A4%8D%E6%9D%82%E5%BA%A6/" rel="next" title="试着阐明复杂度（一）">
-      试着阐明复杂度（一） <i class="fa fa-chevron-right"></i>
+    <a href="/2020/03/24/%E8%AF%95%E7%9D%80%E9%98%90%E6%98%8E%E5%A4%8D%E6%9D%82%E5%BA%A6(%E4%B8%80)/" rel="prev" title="试着阐明复杂度（一）">
+      <i class="fa fa-chevron-left"></i> 试着阐明复杂度（一）
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -328,7 +376,6 @@
 
           </div>
           
-    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -375,7 +422,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#时间复杂度"><span class="nav-number">1.</span> <span class="nav-text">时间复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见的时间复杂度类型"><span class="nav-number">1.1.</span> <span class="nav-text">常见的时间复杂度类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决复杂的递归函数时间复杂度"><span class="nav-number">1.2.</span> <span class="nav-text">解决复杂的递归函数时间复杂度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -587,6 +634,59 @@ window.addEventListener('pjax:success', () => {
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
