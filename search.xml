@@ -5,55 +5,71 @@
     <url>/2020/04/11/%E8%AF%95%E7%9D%80%E9%98%90%E6%98%8E%E5%A4%8D%E6%9D%82%E5%BA%A6(%E4%BA%8C)/</url>
     <content><![CDATA[<p>篇章一主要阐述了关于时间复杂度的几个重要概念，篇章二就来试着找一些典型例子说明常见的时间复杂度类型</p>
 <a id="more"></a>
+
 <h1 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h1><h2 id="常见的时间复杂度类型"><a href="#常见的时间复杂度类型" class="headerlink" title="常见的时间复杂度类型"></a>常见的时间复杂度类型</h2><ol>
 <li><p>O(1)</p>
-<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411171436.png" alt=""></p>
+<img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411171436.png" style="zoom: 80%;" />
+
 <p>这个算法并没有对数据规模n做处理，而只是在几个常量层面上，时间复杂度便为O(1)</p>
 </li>
 <li><p>O(n)</p>
-<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411172349.png" alt=""></p>
+<img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411172349.png" style="zoom: 80%;" />
+
 <p>一个很常见的n循环，时间复杂度为O(n)</p>
-<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411173127.png" alt=""></p>
+<img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411173127.png" style="zoom: 80%;" />
+
 <p>时间复杂度仍为O(n)。到这里你可能已经知道，我们说的O(n)<strong>并不一定是数据规模就是n,准确的说是与n成线性相关</strong>，即c*n(c为常数)</p>
 </li>
 <li><p>O($ n^2$)</p>
-<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411173629.png" alt=""></p>
+<img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411173629.png" style="zoom:80%;" />
+
 <p>典型的<strong>双重循环，且每一层都与数据规模n相关</strong>，<strong>一般</strong>由此就可判断时间复杂度为O($n^2$)。如果仔细分析，数据处理次数为</p>
 <p>n-1+n-2+n-3+…+0=(n-1)*n/2=$n^2$/2-n/2,与$n^2$成线性相关</p>
-<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411174357.png" alt=""></p>
+<img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411174357.png" style="zoom:80%;" />
+
 <p><strong>不能简单的看到双重循环就认为时间复杂度为O($n^2$)</strong>。如上图，第一层循环循环n次，但是第二层只处理固定的30次，即30n。它的时间复杂度其实为O(n)</p>
 </li>
 <li><p>O(logn)</p>
-<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411175133.png" alt=""></p>
+<img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411175133.png" style="zoom:80%;" />
+
 <p>二分查找，典型的O(logn)的例子。关于是否logn的判断就是对于n的本质是</p>
 <p><strong>n经过几次“除以某个数”操作等于一个数</strong></p>
 <p>如二分查找就是看n经过几次除以2等于1</p>
-<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411175859.png" alt=""></p>
+<img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411175859.png" style="zoom:80%;" />
+
 <p>举这样一个将整数转化为字符串的算法，经过次数$log_{10}$n后进行顺序颠倒，时间复杂度为O(logn)</p>
-<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411180438.png" alt=""></p>
+<img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411180438.png" style="zoom:80%;" />
+
 <p>一看是双重循环，但它时间复杂度并不是O($n^2$)。而是O(nlogn)。<strong>第一层的递增规律不是一般的每次加1，这里每次都进行翻倍，符合n经过几次除以2后得到1</strong>，数据处理次数为logn。总体为O(nlogn)。</p>
 </li>
 <li><p>O(sqrt(n))</p>
-<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411181218.png" alt=""></p>
+<img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411181218.png" style="zoom:80%;" />
+
 <p>典型的求素数的算法。不同上面例子的是，循环的递增规律是逐一递增，<strong>判断条件则不是到n,只到了$\sqrt[]{n}$,</strong>时间复杂度就不是O(n),时间复杂度为O($\sqrt[]{n}$)</p>
 </li>
 </ol>
 <h2 id="解决复杂的递归函数时间复杂度"><a href="#解决复杂的递归函数时间复杂度" class="headerlink" title="解决复杂的递归函数时间复杂度"></a>解决复杂的递归函数时间复杂度</h2><p>前面分析的复杂度实例多是<strong>一个处理过程</strong>，如果像递归函数这种函数里面<strong>多次调用函数</strong>，<strong>有多个处理过程的</strong>，它的复杂度又是怎样分析呢？下面提供几种思路</p>
 <ol>
 <li><p>递归函数中有<strong>一次递归调用</strong></p>
-<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411183405.png" alt=""></p>
+<img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411183405.png" style="zoom:80%;" />
+
 <p>老朋友二分查找就是递归函数，而且函数里面<strong>并没有循环等</strong>，每次完成的时间复杂度为O(1)，调用了logn次</p>
-<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411183823.png"  /></p>
+<img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411183823.png" style="zoom:80%;" />
+
 <p>如上分析，二分查找的总时间复杂度就是O(T*depth),其中T=O(1),depth=logn,总时间复杂度O(logn)</p>
-<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411184423.png" alt=""></p>
+<img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411184423.png" style="zoom:80%;" />
+
 <p>计算1+2+..+n。<strong>每个递归函数的时间复杂度</strong>为O(1),<strong>递归深度</strong>为n,总时间复杂度为O(n)</p>
-<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411184934.png" alt=""></p>
+<img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411184934.png" style="zoom:80%;" />
+
 <p>计算$x^n$。<strong>每个递归函数的时间复杂度</strong>为O(1),<strong>递归深度</strong>为logn,总时间复杂度为O(logn)</p>
 </li>
 <li><p>递归函数中有多次函数调用</p>
-<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411185129.png" alt=""></p>
+<img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411185129.png" style="zoom:80%;" />
+
 <p>计算$2^n$。<strong>每个递归函数里面进行两次递归调用</strong></p>
-<p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411185609.png" alt=""></p>
+<img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200411185609.png" style="zoom:80%;" />
+
 <p><strong>每个递归函数的时间复杂度</strong>为O(1),<strong>递归深度</strong>为n+1,<strong>递归次数</strong>为$2^n$。总时间复杂度为增长很快的指数型级别O($2^n$)。这里由于每个函数是调用不止一次的，所以<strong>递归深度不等于递归次数</strong>，这点与前面每个函数只调用一次有区别。</p>
 </li>
 </ol>
@@ -66,14 +82,17 @@
         <category>技术笔记</category>
       </categories>
       <tags>
-        <tag>java，算法入门，复杂度</tag>
+        <tag>java</tag>
+        <tag>算法入门</tag>
+        <tag>复杂度</tag>
       </tags>
   </entry>
   <entry>
     <title>试着阐明复杂度（一）</title>
     <url>/2020/03/24/%E8%AF%95%E7%9D%80%E9%98%90%E6%98%8E%E5%A4%8D%E6%9D%82%E5%BA%A6(%E4%B8%80)/</url>
-    <content><![CDATA[<p>今天开始正式学习算法，先拿这个之前一看到各种论证推理就晕菜的复杂度下手。这次丢掉繁杂的论证过程，试着不专业的阐明算法的头道菜—复杂度</p>
+    <content><![CDATA[<p>今天开始正式学习算法，先拿这个之前一看到各种论证推理就晕菜的复杂度下手。这次丢掉繁杂的论证过程，试着不专业的阐明算法的头道菜–复杂度</p>
 <a id="more"></a>
+
 <h1 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h1><h2 id="什么是大O"><a href="#什么是大O" class="headerlink" title="什么是大O"></a>什么是大O</h2><p><img data-src="https://gitee.com/kerf/picbed/raw/master/img/20200325011534.png" alt=""></p>
 <p>先解决最重要的 <strong>描述复杂度级别</strong> 的 O(f(n)) 问题。什么是大O？</p>
 <p>答：简单说就是你运行的程序所 <strong>需要执行的指令数</strong> ()。</p>
@@ -90,15 +109,15 @@
 <p>时间复杂度级别为O($ n^2$),那么当<strong>n为$ 10^4$</strong>时，计算机需要运行1秒。</p>
 <p>也就是说<strong>数据规模n</strong>，<strong>时间复杂度O(f(n))</strong>，<strong>时间</strong>三者是可以联系起来描述的</p>
 <p>。我们可以记住<strong>1秒内，复杂度为O(n)的算法可以处理$ 10^8$级别的数据</strong>。这有利于我们对算法的执行时间进行判断。</p>
-<h2 id="为什么是O-logn-不是O-log2-n-或者O-log-10-n"><a href="#为什么是O-logn-不是O-log2-n-或者O-log-10-n" class="headerlink" title="为什么是O(logn)不是O($ log2$n)或者O($ log{10}$n)"></a>为什么是O(logn)不是O($ log<em>2$n)或者O($ log</em>{10}$n)</h2><p>我们先来看<strong>典型的O(logn)</strong>的算法例子：二分查找</p>
+<h2 id="为什么是O-logn-不是O-log-2-n-或者O-log-10-n"><a href="#为什么是O-logn-不是O-log-2-n-或者O-log-10-n" class="headerlink" title="为什么是O(logn)不是O($ log_2$n)或者O($ log_{10}$n)"></a>为什么是O(logn)不是O($ log_2$n)或者O($ log_{10}$n)</h2><p>我们先来看<strong>典型的O(logn)</strong>的算法例子：二分查找</p>
 <p><img data-src="https://raw.githubusercontent.com/guashao/Figurebed/master/img/20200325014737.png" alt=""></p>
-<p>可以看到二分查找实际上是判断<strong>n经过几次“除以2”等于1</strong>？我们模拟查找过程：</p>
-<script type="math/tex; mode=display">
-第0次查找范围：n/2^0=n</script><script type="math/tex; mode=display">
-第1次查找范围：n/2^1=n/2</script><script type="math/tex; mode=display">
-第2次查找范围：n/2^2=n/4</script><script type="math/tex; mode=display">
-最后一次查找范围：n/2^x= 1</script><p>可得x=$ log_2$n。好，到这步我们来看另外一个例子</p>
+<p>可以看到二分查找实际上是判断<strong>n经过几次“除以2”等于1</strong>？我们模拟查找过程：<br>$$<br>第0次查找范围：n/2^0=n<br>$$</p>
+<p>$$<br>第1次查找范围：n/2^1=n/2<br>$$</p>
+<p>$$<br>第2次查找范围：n/2^2=n/4<br>$$</p>
+<p>$$<br>最后一次查找范围：n/2^x= 1<br>$$</p>
+<p>可得x=$ log_2$n。好，到这步我们来看另外一个例子</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(n&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    sum=sum+test(n/<span class="number">5</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>这一个<strong>递归函数</strong>的复杂度级别是多少呢？</p>
 <p>我们不难发现这个例子与上个例子是<strong>异曲同工</strong>的。判断它的<strong>递归次数实际是判断n经过几次“除以5”小于等于1</strong>。结果是=$ log_5$n.</p>
 <p>这两个例子我们都用O(logn)表示，也就是说<strong>忽略了底数的差别</strong>。</p>
@@ -123,13 +142,18 @@
     <url>/2020/03/16/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
 <a id="more"></a>
+
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
       <categories>
